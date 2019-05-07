@@ -4,7 +4,7 @@ set -eu
 wait_down() {
   for _ in {1..120}; do
     echo 'checking if uaa is down'
-    if ! curl -sfk https://localhost:8443; then
+    if ! curl --fail --insecure --silent --show-error --max-time 5 --connect-timeout 2 https://localhost:8443/healthz; then
       echo 'uaa is down'
       return 0
     fi
@@ -18,7 +18,7 @@ wait_down() {
 wait_up() {
   for _ in {1..120}; do
     echo 'checking if uaa is up'
-    if curl -sfk https://localhost:8443; then
+    if curl --fail --insecure --silent --show-error --max-time 5 --connect-timeout 2 https://localhost:8443/healthz; then
       echo 'uaa is up'
       return 0
     fi
