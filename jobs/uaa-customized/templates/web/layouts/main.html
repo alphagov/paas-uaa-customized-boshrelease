@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" dir="ltr" lang="en"
-                                                                                                             xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-                                                                                                             th:with="assetBaseUrl=${@environment.getProperty('assetBaseUrl','/resources/oss')},
-                                                                                                             isUaa=${T(org.cloudfoundry.identity.uaa.zone.IdentityZoneHolder).isUaa()},
-                                                                                                             zoneName=${T(org.cloudfoundry.identity.uaa.zone.IdentityZoneHolder).get().getName()},
-                                                                                                             branding=${T(org.cloudfoundry.identity.uaa.zone.MergedZoneBrandingInformation).resolveBranding()},
-                                                                                                             companyName=${branding.getCompanyName() ?: 'Cloud Foundry'},
-                                                                                                             copyrightCompanyName=${branding.getCompanyName() ?: 'CloudFoundry.org Foundation, Inc. '},
-                                                                                                             copyrightFallback=${'Copyright &#169; ' + copyrightCompanyName + ' ' + #dates.year(#dates.createNow()) + '. All Rights Reserved.'},
-                                                                                                             copyright=${branding.getFooterLegalText() ?: copyrightFallback},
-                                                                                                             brandingLogo=${branding.getProductLogo()},
-                                                                                                             fallbackLogo=${isUaa ? assetBaseUrl+'/images/product-logo.png' : null},
-                                                                                                             logo=${brandingLogo != null ? 'data:image/png;base64,'+#strings.replace(brandingLogo,T(java.lang.System).getProperty('line.separator'),'') : fallbackLogo}" class="govuk-template app-html-class">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      th:with="assetBaseUrl=${@environment.getProperty('assetBaseUrl','/resources/oss')},
+      isUaa=${T(org.cloudfoundry.identity.uaa.zone.IdentityZoneHolder).isUaa()},
+      zoneName=${T(org.cloudfoundry.identity.uaa.zone.IdentityZoneHolder).get().getName()},
+      branding=${T(org.cloudfoundry.identity.uaa.zone.MergedZoneBrandingInformation).resolveBranding()},
+      companyName=${branding.getCompanyName() ?: 'Cloud Foundry'},
+      copyrightCompanyName=${branding.getCompanyName() ?: 'CloudFoundry.org Foundation, Inc. '},
+      copyrightFallback=${'Copyright &#169; ' + copyrightCompanyName + ' ' + #dates.year(#dates.createNow()) + '. All Rights Reserved.'},
+      copyright=${branding.getFooterLegalText() ?: copyrightFallback},
+      brandingLogo=${branding.getProductLogo()},
+      fallbackLogo=${isUaa ? assetBaseUrl+'/images/product-logo.png' : null},
+      logo=${brandingLogo != null ? 'data:image/png;base64,'+#strings.replace(brandingLogo,T(java.lang.System).getProperty('line.separator'),'') : fallbackLogo}"
+      dir="ltr"
+      lang="en"
+      class="govuk-template app-html-class">
   <head>
     <title>Sign in to GOV.UK PaaS</title>
     <link href='/resources/oss/images/square-logo.png' th:with="icon=${branding.getSquareLogo()}" th:href="@{${icon != null ? 'data:image/png;base64,'+icon : (assetBaseUrl + '/images/square-logo.png')}}" rel='shortcut icon' />
