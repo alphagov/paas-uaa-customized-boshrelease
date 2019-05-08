@@ -13,4 +13,6 @@ templates:
   resources/oss/images/product-logo.png: resources/oss/images/product-logo.png
   resources/oss/images/square-logo.png: resources/oss/images/square-logo.png
 
+  web/layouts/main.html: web/layouts/main.html
+
 properties: {}
