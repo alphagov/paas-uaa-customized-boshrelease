@@ -15,5 +15,6 @@ templates:
 
   web/layouts/main.html: web/layouts/main.html
   web/login.html: web/login.html
+  web/forgot_password.html: web/forgot_password.html
 
 properties: {}
