@@ -14,5 +14,6 @@ templates:
   resources/oss/images/square-logo.png: resources/oss/images/square-logo.png
 
   web/layouts/main.html: web/layouts/main.html
+  web/login.html: web/login.html
 
 properties: {}
