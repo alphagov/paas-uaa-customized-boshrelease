@@ -9,6 +9,7 @@ templates:
   bin/health_check: bin/health_check
 
   resources/oss/stylesheets/application.css: resources/oss/stylesheets/application.css
+  resources/oss/stylesheets/govuk-frontend-2.11.0.min.css: resources/oss/stylesheets/govuk-frontend-2.11.0.min.css
   resources/oss/images/product-logo.png: resources/oss/images/product-logo.png
   resources/oss/images/square-logo.png: resources/oss/images/square-logo.png
 
