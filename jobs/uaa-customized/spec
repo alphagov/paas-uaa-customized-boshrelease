@@ -17,4 +17,6 @@ templates:
   web/login.html: web/login.html
   web/forgot_password.html: web/forgot_password.html
 
-properties: {}
+properties:
+  region:
+    description: "AWS Region Name"
