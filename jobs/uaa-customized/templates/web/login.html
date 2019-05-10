@@ -97,17 +97,13 @@
       </p>
     </div>
 
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-full" th:unless="${oauthLinks.isEmpty()}">
       <hr class="govuk-section-break govuk-section-break--m">
-    </div>
 
-    <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-l">
         Use single sign-on
       </h1>
-    </div>
 
-    <div class="govuk-grid-column-two-thirds">
       <p class="govuk-body">
       This option is only available to internal users.
       </p>
