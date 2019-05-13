@@ -6,11 +6,9 @@
 <div layout:fragment="page-content">
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-l">Sign in</h1>
-    </div>
-
     <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Sign in</h1>
+
       <div th:if="${param.error}" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
         <h2 class="govuk-error-summary__title" id="error-summary-title">
           There is a problem
@@ -97,7 +95,7 @@
       </p>
     </div>
 
-    <div class="govuk-grid-column-full" th:unless="${oauthLinks.isEmpty()}">
+    <div class="govuk-grid-column-two-thirds" th:unless="${oauthLinks.isEmpty()}">
       <hr class="govuk-section-break govuk-section-break--m">
 
       <h1 class="govuk-heading-l">
@@ -109,9 +107,9 @@
       </p>
 
       <p class="govuk-body" th:each="oauthLink : ${oauthLinks}">
-        <a href="" th:href="${oauthLink.key}">
-          Sign in using <span th:text="${oauthLink.value}"></span>
-        </a>
+        <a class="govuk-button govuk-button--secondary"
+           th:href="${oauthLink.key}"
+           th:text="Sign in using ${oauthLink.value}"></a>
       </p>
     </div>
   </div>
