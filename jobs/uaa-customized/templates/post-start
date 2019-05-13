@@ -63,11 +63,11 @@ WAR_TEMPDIR="$(mktemp -d)"
 pushd "${WAR_TEMPDIR}"
   unzip "${WARFILE}" "${JARFILE}"
 
-  # ignore templates for now
-  # mkdir -p templates/web
-  # cp -a "${JOB_DIR}"/web/* templates/web
-  # zip -r "${JARFILE}" templates/web
-  # zip "$WARFILE" "$JARFILE"
+  mkdir -p templates/web/layouts
+  mkdir -p templates/web/invitations
+  cp -a "${JOB_DIR}"/web/* templates/web
+  zip -r "${JARFILE}" templates/web
+  zip "$WARFILE" "$JARFILE"
 
   mkdir -p resources
   cp -a "${JOB_DIR}"/resources/* resources/

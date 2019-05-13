@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/main" th:with="isLdap=${provider=='ldap'}">
+  <div class="govuk-grid-row" layout:fragment="page-content">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l"
+          th:text="${'Create your ' + companyName + ' account'}"></h1>
+
+      <dl class="govuk-summary-list"
+          th:unless="${error_message_code == 'code_expired'}">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Email</dt>
+          <dd class="govuk-summary-list__value"
+              th:text="${email}"></dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+
+      <div th:if="${error_message_code}"
+           class="govuk-error-summary"
+           aria-labelledby="error-summary-title"
+           role="alert" tabindex="-1" data-module="error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li th:text="#{'account_activation.' + ${error_message_code}}">
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div th:if="${error_message}"
+           class="govuk-error-summary"
+           aria-labelledby="error-summary-title"
+           role="alert" tabindex="-1" data-module="error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li th:text="#{'account_activation.' + ${error_message}}">
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <th:block th:unless="${error_message_code == 'code_expired'}" >
+        <th:block th:if="${provider == 'uaa'}">
+          <form th:action="@{/invitations/accept.do}"
+                method="post"
+                novalidate="novalidate">
+
+            <input name="code" type="hidden" value="code" th:value="${code}"/>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="password">
+                Password
+              </label>
+              <input name="password"
+                     id="password"
+                     type="password"
+                     autocomplete="off"
+                     class="govuk-input"/>
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="password-confirmation">
+                Password confirmation
+              </label>
+              <input name="password_confirmation"
+                     id="password-confirmation"
+                     type="password"
+                     autocomplete="off"
+                     class="govuk-input"/>
+            </div>
+
+            <button class="govuk-button">Continue</button>
+          </form>
+        </th:block>
+      </th:block>
+    </div>
+  </div>
+</html>
