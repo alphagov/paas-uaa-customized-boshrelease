@@ -64,6 +64,7 @@ pushd "${WAR_TEMPDIR}"
   unzip "${WARFILE}" "${JARFILE}"
 
   mkdir -p templates/web/layouts
+  mkdir -p templates/web/invitations
   cp -a "${JOB_DIR}"/web/* templates/web
   zip -r "${JARFILE}" templates/web
   zip "$WARFILE" "$JARFILE"
