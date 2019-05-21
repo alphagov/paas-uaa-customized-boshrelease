@@ -36,6 +36,7 @@ templates:
   web/forgot_password.html: web/forgot_password.html
   web/external_auth_error.html: web/external_auth_error.html
   web/error.html: web/error.html
+  web/passcode.html: web/passcode.html
 
 properties:
   region:
