@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorator="layouts/main">
+<head>
+  <th:block layout:include="nav :: head"></th:block>
+</head>
+<div layout:fragment="page-nav">
+  <th:block layout:replace="nav :: nav"></th:block>
+</div>
+
+<div class="govuk-grid-row" layout:fragment="page-content">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Authentication code
+      </h1>
+      <div class="govuk-panel__body">
+        Your one-time passcode is <strong th:text="${passcode}">my-code</strong>
+      </div>
+    </div>
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+        Copy and paste your code into the command line. Please ensure you keep this private.
+      </strong>
+    </div>
+  </div>
+</div>
+</html>

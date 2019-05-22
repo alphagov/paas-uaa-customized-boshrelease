@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/main">
+<head>
+</head>
+<body>
+<div class="govuk-grid-row" layout:fragment="page-content">
+  <div class="govuk-grid-column-two-thirds">
+    <div th:if="${error_message_code}" class="alert alert-error">
+      <p th:text="#{${error_message_code}}">Error Message</p>
+    </div>
+
+    <div th:if="${param.error}" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There was an error when authenticating against the single sign-on provider.
+      </h2>
+      <div th:if="${#strings.containsIgnoreCase(param.error[0], 'The user account must be pre-created')}">
+        <p class="govuk-body">
+          Your account has not had single sign-on enabled.
+          Please log in using your username and password
+          <a class="govuk-link" href="/login">here</a>. Alternatively, you may need to:
+        </p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="https://www.cloud.service.gov.uk/sign-in">Switch region</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="https://www.cloud.service.gov.uk/signup">Request an account</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="https://www.cloud.service.gov.uk/support">Contact Support</a>
+          </li>
+        </ul>
+      </div>
+      <p class="govuk-body"
+         th:unless="${#strings.containsIgnoreCase(param.error[0], 'The user account must be pre-created')}">
+        <a class="govuk-link"
+           href="https://www.cloud.service.gov.uk/support">
+        Contact GOV.UK PaaS support</a> if you have any issues with the platform.
+      </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
