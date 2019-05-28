@@ -102,14 +102,34 @@
         Use single sign-on
       </h1>
 
+      <h2 class="govuk-heading-m">Google</h2>
+
       <p class="govuk-body">
-      This option is only available to internal users.
+        This option is only available to users with a
+        <code>@digital.cabinet-office.gov.uk</code> email address, who have
+        enabled single sign-on using the admin panel.
       </p>
 
-      <p class="govuk-body" th:each="oauthLink : ${oauthLinks}">
+      <p class="govuk-body" th:each="maybeGoogle : ${oauthLinks}">
         <a class="govuk-button govuk-button--secondary"
-           th:href="${oauthLink.key}"
-           th:text="${'Sign in using ' + oauthLink.value}"></a>
+           th:href="${maybeGoogle.key}"
+           th:if="${#strings.containsIgnoreCase(maybeGoogle.value, 'google')}">
+          Continue
+        </a>
+      </p>
+
+      <h2 class="govuk-heading-m">Microsoft</h2>
+
+      <p class="govuk-body">
+        This option is only available to internal users.
+      </p>
+
+      <p class="govuk-body" th:each="maybeMS : ${oauthLinks}">
+        <a class="govuk-button govuk-button--secondary"
+           th:href="${maybeMS.key}"
+           th:if="${#strings.containsIgnoreCase(maybeMS.value, 'microsoft')}">
+          Continue
+        </a>
       </p>
     </div>
   </div>
