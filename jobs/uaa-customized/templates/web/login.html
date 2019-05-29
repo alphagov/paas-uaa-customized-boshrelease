@@ -117,6 +117,10 @@
           Continue
         </a>
       </p>
+
+      <th:block th:each="oauthLink : ${oauthLinks}" th:inline="html">
+        <!-- [(${oauthLink.value})] [(${oauthLink.key})] -->
+      </th:block>
     </div>
   </div>
 </div>
