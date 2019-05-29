@@ -117,20 +117,6 @@
           Continue
         </a>
       </p>
-
-      <h2 class="govuk-heading-m">Microsoft</h2>
-
-      <p class="govuk-body">
-        This option is only available to internal users.
-      </p>
-
-      <p class="govuk-body" th:each="maybeMS : ${oauthLinks}">
-        <a class="govuk-button govuk-button--secondary"
-           th:href="${maybeMS.key}"
-           th:if="${#strings.containsIgnoreCase(maybeMS.value, 'microsoft')}">
-          Continue
-        </a>
-      </p>
     </div>
   </div>
 </div>
