@@ -1,13 +1,21 @@
-.region {
+a.region {
   float: right;
   margin-right: 0;
   background-color: #6f777b;
 }
 
-.region.london {
+a.region:visited, a.region:hover, a.region:link {
+  color: #fff;
+}
+
+a.region:hover {
+  border-bottom: 3px solid #fff;
+}
+
+a.region.london {
   background-color: #005ea5;
 }
 
-.region.ireland {
+a.region.ireland {
   background-color: #006435;
 }
