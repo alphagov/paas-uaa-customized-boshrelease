@@ -38,6 +38,8 @@ templates:
   web/error.html: web/error.html
   web/passcode.html: web/passcode.html
 
+  mail/reset_password_unavailable.html: mail/reset_password_unavailable.html
+
 properties:
   region:
     description: "AWS Region Name"
