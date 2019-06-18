@@ -65,8 +65,11 @@ pushd "${WAR_TEMPDIR}"
 
   mkdir -p templates/web/layouts
   mkdir -p templates/web/invitations
+  mkdir -p templates/mail
   cp -a "${JOB_DIR}"/web/* templates/web
+  cp -a "${JOB_DIR}"/mail/* templates/mail
   zip -r "${JARFILE}" templates/web
+  zip -r "${JARFILE}" templates/mail
   zip "$WARFILE" "$JARFILE"
 
   mkdir -p resources
