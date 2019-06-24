@@ -118,9 +118,21 @@
         </a>
       </p>
 
-      <th:block th:each="oauthLink : ${oauthLinks}" th:inline="html">
-        <!-- [(${oauthLink.value})] [(${oauthLink.key})] -->
-      </th:block>
+      <h2 class="govuk-heading-m">Microsoft</h2>
+
+      <p class="govuk-body">
+        This option is open to everyone with a Microsoft account, who has
+        enabled single sign-on using the admin panel.
+      </p>
+
+      <p class="govuk-body" th:each="maybeMicrosoft : ${oauthLinks}">
+        <a class="govuk-button govuk-button--secondary"
+           th:href="${maybeMicrosoft.key}"
+           th:if="${#strings.containsIgnoreCase(maybeMicrosoft.value, 'microsoft')}">
+          Continue
+        </a>
+      </p>
+
     </div>
   </div>
 </div>
