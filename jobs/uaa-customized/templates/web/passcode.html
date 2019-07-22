@@ -16,7 +16,10 @@
         Authentication code
       </h1>
       <div class="govuk-panel__body">
-        Your one-time passcode is <strong th:text="${passcode}">my-code</strong>
+        <p>
+          Your one-time passcode is
+          <strong th:text="${passcode}">my-code</strong>
+        </p>
       </div>
     </div>
     <div class="govuk-warning-text">
@@ -27,5 +30,35 @@
       </strong>
     </div>
   </div>
+
+  <script type="text/javascript">
+  (function(){
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+      var panelSelector = '.govuk-panel.govuk-panel--confirmation .govuk-panel__body';
+      var passcodeSelector = panelSelector + ' strong';
+      var buttonSelector = panelSelector + ' button';
+      var buttonContentsBefore = 'Copy passcode to clipboard';
+      var buttonContentsAfter = 'Copied to clipboard';
+
+      var newButtonElement = document.createElement('button');
+      newButtonElement.classList.add('govuk-button');
+      newButtonElement.classList.add('govuk-button--secondary');
+      newButtonElement.innerText = buttonContentsBefore;
+      newButtonElement.onclick = function() {
+        var passcodeElement = document.querySelector(passcodeSelector);
+        var buttonElement  = document.querySelector(buttonSelector);
+
+        var passcode = passcodeElement.innerText.trim();
+        navigator.clipboard.writeText(passcode).then(function() {
+          buttonElement.innerText = buttonContentsAfter;
+        });
+      };
+
+      document.querySelector(panelSelector).appendChild(newButtonElement);
+      newButtonElement.focus();
+    }
+  })();
+  </script>
 </div>
+
 </html>
