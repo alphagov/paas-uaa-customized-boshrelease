@@ -16,8 +16,7 @@
       <div th:if="${#strings.containsIgnoreCase(param.error[0], 'The user account must be pre-created')}">
         <p class="govuk-body">
           Your account has not had single sign-on enabled.
-          Please log in using your username and password
-          <a class="govuk-link" href="/login">here</a>. Alternatively, you may need to:
+          Please <a class="govuk-link" href="/login">sign in using your username and password</a>. Alternatively, you may need to:
         </p>
         <ul class="govuk-list">
           <li>
