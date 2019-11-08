@@ -16,6 +16,7 @@ templates:
   resources/oss/images/icon-pointer-2x.png: resources/oss/images/icon-pointer-2x.png
   resources/oss/images/govuk-crest.png: resources/oss/images/govuk-crest.png
   resources/oss/images/govuk-crest-2x.png: resources/oss/images/govuk-crest-2x.png
+  resources/oss/images/govuk-logotype-crown.png: resources/oss/images/govuk-logotype-crown.png
   resources/oss/fonts/bold-a2452cb66f-v1.woff2: resources/oss/fonts/bold-a2452cb66f-v1.woff2
   resources/oss/fonts/bold-f38c792ac2-v1.woff: resources/oss/fonts/bold-f38c792ac2-v1.woff
   resources/oss/fonts/bold-fb2676462a-v1.eot: resources/oss/fonts/bold-fb2676462a-v1.eot
