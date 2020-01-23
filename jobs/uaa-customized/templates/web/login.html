@@ -112,7 +112,7 @@
       <p class="govuk-body" th:each="maybeGoogle : ${oauthLinks}">
         <a class="govuk-button govuk-button--secondary"
            th:href="${maybeGoogle.key}"
-           th:if="${#strings.containsIgnoreCase(maybeGoogle.value, 'google')}">
+           th:if="${#strings.equals(maybeGoogle.value, 'Google')}">
           Continue
         </a>
       </p>
@@ -127,10 +127,34 @@
       <p class="govuk-body" th:each="maybeMicrosoft : ${oauthLinks}">
         <a class="govuk-button govuk-button--secondary"
            th:href="${maybeMicrosoft.key}"
-           th:if="${#strings.containsIgnoreCase(maybeMicrosoft.value, 'microsoft')}">
+           th:if="${#strings.equals(maybeMicrosoft.value, 'Microsoft')}">
           Continue
         </a>
       </p>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            GOV.UK Platform as a Service - Platform Administrators
+          </span>
+        </summary>
+
+        <div class="govuk-details__text">
+          <p class="govuk-body">
+            This option is only applicable to the platform administrators of
+            GOV.UK Platform as a Service. If you are hosting your service on
+            GOV.UK PaaS, you should use one of the options above.
+          </p>
+          
+          <p class="govuk-body" th:each="maybeAdminGoogle : ${oauthLinks}">
+            <a class="govuk-link"
+              th:href="${maybeAdminGoogle.key}"
+              th:if="${#strings.equals(maybeAdminGoogle.value, 'AdminGoogle')}">
+              I am an operator
+            </a>
+          </p>
+        </div>
+      </details>
 
     </div>
   </div>
