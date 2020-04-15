@@ -52,7 +52,7 @@
           </label>
           <input th:name="${prompt.key}"
                  th:type="${prompt.value[0]}"
-                 th:attr="autocomplete=${(prompt.value[0] == 'password') ? 'off' : null}"
+                 th:attr="autocomplete='off'"
                  class="govuk-input"/>
         </div>
 
