@@ -80,7 +80,7 @@
                th:value="${login_hint}"
                type="hidden"/>
 
-        <button class="govuk-button">Continue</button>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
       </form>
 
       <p class="govuk-body" th:unless="${#strings.isEmpty(links['forgotPasswordLink'])}">
@@ -112,6 +112,7 @@
 
       <p class="govuk-body" th:each="maybeGoogle : ${oauthLinks}">
         <a class="govuk-button govuk-button--secondary"
+           data-module="govuk-button"
            th:href="${maybeGoogle.key}"
            th:if="${#strings.equals(maybeGoogle.value, 'Google')}">
           Continue
@@ -127,6 +128,7 @@
 
       <p class="govuk-body" th:each="maybeMicrosoft : ${oauthLinks}">
         <a class="govuk-button govuk-button--secondary"
+           data-module="govuk-button"
            th:href="${maybeMicrosoft.key}"
            th:if="${#strings.equals(maybeMicrosoft.value, 'Microsoft')}">
           Continue
