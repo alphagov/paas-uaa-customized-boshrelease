@@ -15,7 +15,7 @@
       logo=${brandingLogo != null ? 'data:image/png;base64,'+#strings.replace(brandingLogo,T(java.lang.System).getProperty('line.separator'),'') : fallbackLogo}"
       dir="ltr"
       lang="en"
-      class="govuk-template app-html-class">
+      class="govuk-template">
   <head>
     <title>Sign in to GOV.UK PaaS</title>
     <link href='/resources/oss/images/square-logo.png' th:with="icon=${branding.getSquareLogo()}" th:href="@{${icon != null ? 'data:image/png;base64,'+icon : (assetBaseUrl + '/images/square-logo.png')}}" rel='shortcut icon' />
@@ -30,7 +30,7 @@
     <link href="/resources/oss/stylesheets/govuk-frontend-3.7.0.min.css" th:href="@{${assetBaseUrl}+'/stylesheets/govuk-frontend-3.7.0.min.css'}" rel="stylesheet"/>
     <link href="/resources/oss/stylesheets/application.css" th:href="@{${assetBaseUrl}+'/stylesheets/application.css'}" rel="stylesheet"/>
   </head>
-  <body class="govuk-template__body govuk-body">
+  <body class="govuk-template__body">
     <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
     <header class="govuk-header " role="banner">
       <div class="govuk-header__container govuk-width-container">
