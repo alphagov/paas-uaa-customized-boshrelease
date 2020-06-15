@@ -1,21 +1,29 @@
-a.region {
-  float: right;
-  margin-right: 0;
+.app-tag {
+  margin-bottom: 10px;
   background-color: #6f777b;
 }
 
-a.region:visited, a.region:hover, a.region:link {
-  color: #fff;
+@media (min-width: 48.0625em) {
+  .app-tag {
+    float: right;
+    margin-right: 0;
+  }
 }
 
-a.region:hover {
-  border-bottom: 3px solid #fff;
-}
-
-a.region.london {
+.app-tag--london {
   background-color: #005ea5;
 }
 
-a.region.ireland {
+.app-tag--ireland {
   background-color: #006435;
+}
+
+/* adjust to fit product name */
+@media (min-width: 48.0625em) {
+  .govuk-header__logo {
+    width: 66.66%;
+  }
+  .govuk-header__content {
+    width: 33.33%;
+  }
 }
