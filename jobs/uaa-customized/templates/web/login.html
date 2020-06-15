@@ -50,7 +50,8 @@
                  th:attr="for=${prompt.key}"
                  th:text="${prompt.value[1] == 'Email' ? 'Email address' : prompt.value[1]}">
           </label>
-          <input th:name="${prompt.key}"
+          <input th:id="${prompt.key}"
+                 th:name="${prompt.key}"
                  th:type="${prompt.value[0]}"
                  th:attr="autocomplete='off'"
                  class="govuk-input"/>
