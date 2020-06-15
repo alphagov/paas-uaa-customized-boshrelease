@@ -7,7 +7,6 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Sign in to GOV.UK PaaS</h1>
 
       <div th:if="${param.error}" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
         <h2 class="govuk-error-summary__title" id="error-summary-title">
@@ -30,6 +29,8 @@
           </ul>
         </div>
       </div>
+
+      <h1 class="govuk-heading-l">Sign in to GOV.UK PaaS</h1>
 
       <div th:if="${param.success}" class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
