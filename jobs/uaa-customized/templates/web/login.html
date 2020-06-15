@@ -115,7 +115,7 @@
            data-module="govuk-button"
            th:href="${maybeGoogle.key}"
            th:if="${#strings.equals(maybeGoogle.value, 'Google')}">
-          Continue
+          Continue <span class="govuk-visually-hidden"> with Google sign sign-on</span>
         </a>
       </p>
 
@@ -131,7 +131,7 @@
            data-module="govuk-button"
            th:href="${maybeMicrosoft.key}"
            th:if="${#strings.equals(maybeMicrosoft.value, 'Microsoft')}">
-          Continue
+          Continue <span class="govuk-visually-hidden"> with Microsoft sign sign-on</span>
         </a>
       </p>
 
