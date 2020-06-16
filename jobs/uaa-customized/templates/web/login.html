@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/main">
-<head>
-    <meta http-equiv="refresh" th:content="${@loginCookieCsrfRepository.getCookieMaxAge()}" />
-</head>
 <div layout:fragment="page-content">
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Sign in</h1>
 
-      <div th:if="${param.error}" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+      <div th:if="${param.error}" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
         <h2 class="govuk-error-summary__title" id="error-summary-title">
           There is a problem
         </h2>
@@ -20,7 +16,7 @@
         </div>
       </div>
 
-      <div th:if="${error}" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+      <div th:if="${error}" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
         <h2 class="govuk-error-summary__title" id="error-summary-title">
           There is a problem
         </h2>
@@ -30,6 +26,8 @@
           </ul>
         </div>
       </div>
+
+      <h1 class="govuk-heading-l">Sign in to GOV.UK PaaS</h1>
 
       <div th:if="${param.success}" class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -50,7 +48,8 @@
                  th:attr="for=${prompt.key}"
                  th:text="${prompt.value[1] == 'Email' ? 'Email address' : prompt.value[1]}">
           </label>
-          <input th:name="${prompt.key}"
+          <input th:id="${prompt.key}"
+                 th:name="${prompt.key}"
                  th:type="${prompt.value[0]}"
                  th:attr="autocomplete='off'"
                  class="govuk-input"/>
@@ -79,7 +78,7 @@
                th:value="${login_hint}"
                type="hidden"/>
 
-        <button class="govuk-button">Continue</button>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
       </form>
 
       <p class="govuk-body" th:unless="${#strings.isEmpty(links['forgotPasswordLink'])}">
@@ -111,9 +110,10 @@
 
       <p class="govuk-body" th:each="maybeGoogle : ${oauthLinks}">
         <a class="govuk-button govuk-button--secondary"
+           data-module="govuk-button"
            th:href="${maybeGoogle.key}"
            th:if="${#strings.equals(maybeGoogle.value, 'Google')}">
-          Continue
+          Continue <span class="govuk-visually-hidden"> with Google sign sign-on</span>
         </a>
       </p>
 
@@ -126,9 +126,10 @@
 
       <p class="govuk-body" th:each="maybeMicrosoft : ${oauthLinks}">
         <a class="govuk-button govuk-button--secondary"
+           data-module="govuk-button"
            th:href="${maybeMicrosoft.key}"
            th:if="${#strings.equals(maybeMicrosoft.value, 'Microsoft')}">
-          Continue
+          Continue <span class="govuk-visually-hidden"> with Microsoft sign sign-on</span>
         </a>
       </p>
 
@@ -158,5 +159,12 @@
 
     </div>
   </div>
+</div>
+  <th:block layout:fragment="page-scripts">
+    <script>
+      // the page will refresh after 24 hours to give you a new CSRF token
+      setTimeout(function() {window.location=window.location}, 86400 * 1000)
+    </script>
+  </th:block>
 </div>
 </html>

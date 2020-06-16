@@ -9,7 +9,7 @@
       <p th:text="#{${error_message_code}}">Error Message</p>
     </div>
 
-    <div th:if="${param.error}" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+    <div th:if="${param.error}" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
       <h2 class="govuk-error-summary__title" id="error-summary-title">
           There was an error when authenticating against the single sign-on provider.
       </h2>
