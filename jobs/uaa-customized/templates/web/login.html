@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/main">
-<head>
-    <meta http-equiv="refresh" th:content="${@loginCookieCsrfRepository.getCookieMaxAge()}" />
-</head>
 <div layout:fragment="page-content">
 
   <div class="govuk-grid-row">
@@ -162,5 +159,12 @@
 
     </div>
   </div>
+</div>
+  <th:block layout:fragment="page-scripts">
+    <script>
+      // the page will refresh after 24 hours to give you a new CSRF token
+      setTimeout(function() {window.location=window.location}, 86400 * 1000)
+    </script>
+  </th:block>
 </div>
 </html>
