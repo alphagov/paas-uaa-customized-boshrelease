@@ -117,22 +117,6 @@
         </a>
       </p>
 
-      <h2 class="govuk-heading-m">Microsoft</h2>
-
-      <p class="govuk-body">
-        This option is open to everyone with a Microsoft account who has
-        enabled single sign-on using the admin panel.
-      </p>
-
-      <p class="govuk-body" th:each="maybeMicrosoft : ${oauthLinks}">
-        <a class="govuk-button govuk-button--secondary"
-           data-module="govuk-button"
-           th:href="${maybeMicrosoft.key}"
-           th:if="${#strings.equals(maybeMicrosoft.value, 'Microsoft')}">
-          Continue <span class="govuk-visually-hidden"> with Microsoft sign sign-on</span>
-        </a>
-      </p>
-
       <details class="govuk-details" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
