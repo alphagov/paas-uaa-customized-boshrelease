@@ -11,7 +11,7 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a th:href="#username" th:text="#{'login.' + ${param.error[0]}}">Error Message</a>
+              <a href="#username" th:href="@{#username}" th:text="#{'login.' + ${param.error[0]}}">Error Message</a>
             </li>
           </ul>
         </div>
@@ -24,7 +24,7 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a th:href="#username" th:text="#{'login.' + ${error}}">Error Message</a>
+              <a href="#username" th:href="@{#username}" th:text="#{'login.' + ${error}}">Error Message</a>
             </li>
           </ul>
         </div>
