@@ -40,7 +40,7 @@
         </strong>
       </div>
     </div>
-    <div class="govuk-grid-column-one-half">
+    <div class="govuk-grid-column-one-half govuk-!-margin-bottom-6">
       <h2 class="govuk-heading-m">
         Use email address
       </h2>
@@ -101,7 +101,7 @@
       </p>
     </div>
 
-    <div class="govuk-grid-column-one-half" th:unless="${oauthLinks.isEmpty()}">
+    <div class="govuk-grid-column-one-half govuk-!-margin-bottom-6" th:unless="${oauthLinks.isEmpty()}">
 
       <h2 class="govuk-heading-m">
         Use Google single sign-on
@@ -122,29 +122,20 @@
       </p>
     </div>
     <div class="govuk-grid-column-two-thirds">
-      <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            GOV.UK Platform as a Service - Platform Administrators
-          </span>
-        </summary>
-
-        <div class="govuk-details__text">
-          <p class="govuk-body">
-            This option is only applicable to the platform administrators of
-            GOV.UK Platform as a Service. If you are hosting your service on
-            GOV.UK PaaS, you should use one of the options above.
-          </p>
+      <h2 class="govuk-heading-m">GOV.UK Platform as a Service - Platform Administrators</h2>
+      <p class="govuk-body">
+        This option is only applicable to the platform administrators of
+        GOV.UK Platform as a Service. If you are hosting your service on
+        GOV.UK PaaS, you should use one of the options above.
+      </p>
           
-          <p class="govuk-body" th:each="maybeAdminGoogle : ${oauthLinks}">
-            <a class="govuk-link"
-              th:href="${maybeAdminGoogle.key}"
-              th:if="${#strings.equals(maybeAdminGoogle.value, 'AdminGoogle')}">
-              I am an operator
-            </a>
-          </p>
-        </div>
-      </details>
+      <p class="govuk-body" th:each="maybeAdminGoogle : ${oauthLinks}">
+        <a class="govuk-link"
+          th:href="${maybeAdminGoogle.key}"
+          th:if="${#strings.equals(maybeAdminGoogle.value, 'AdminGoogle')}">
+          I am an operator
+        </a>
+      </p>
     </div>
   </div>
 </div>
