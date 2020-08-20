@@ -70,7 +70,7 @@
           </span>
           <input th:id="${prompt.key}"
                  th:name="${prompt.key}"
-                 th:type="${prompt.value[0]}"
+                 th:type="${prompt.value[1] == 'Email' ? 'email' : prompt.value[0]}"
                  th:attr="autocomplete='off'"
                  class="govuk-input"/>
         </div>
