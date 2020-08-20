@@ -24,7 +24,10 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#username" th:href="@{#username}" th:text="#{'login.' + ${error}}">Error Message</a>
+              <a href="#username" th:href="@{#username}">Unable to verify email address</a>
+            </li>
+            <li>
+              <a href="#password" th:href="@{#password}">Unable to match password with an email address</a>
             </li>
           </ul>
         </div>
@@ -49,12 +52,22 @@
             novalidate="novalidate"
             accept-charset="UTF-8">
 
-        <div class="govuk-form-group"
+        <div th:class="govuk-form-group"
+             th:classappend="${error}? 'govuk-form-group--error'"
              th:each="prompt,iter : ${prompts}">
           <label class="govuk-label"
                  th:attr="for=${prompt.key}"
                  th:text="${prompt.value[1] == 'Email' ? 'Email address' : prompt.value[1]}">
           </label>
+          <span
+              th:if="${error}"
+              th:id="${prompt.key + '-error'}"
+              class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span>
+            <span
+                th:text="${prompt.value[1] == 'Email' ? 'Unable to verify email address' : 'Unable to match password with an email address'}">
+            </span>
+          </span>
           <input th:id="${prompt.key}"
                  th:name="${prompt.key}"
                  th:type="${prompt.value[0]}"
