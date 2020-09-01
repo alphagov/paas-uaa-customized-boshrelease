@@ -11,19 +11,6 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#username" th:href="@{#username}" th:text="#{'login.' + ${param.error[0]}}">Error Message</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div th:if="${error}" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
-        <h2 class="govuk-error-summary__title" id="error-summary-title">
-          There is a problem
-        </h2>
-        <div class="govuk-error-summary__body">
-          <ul class="govuk-list govuk-error-summary__list">
-            <li>
               <a href="#username" th:href="@{#username}">Unable to verify email address</a>
             </li>
             <li>
@@ -53,14 +40,14 @@
             accept-charset="UTF-8">
 
         <div th:class="govuk-form-group"
-             th:classappend="${error}? 'govuk-form-group--error'"
+             th:classappend="${param.error}? 'govuk-form-group--error'"
              th:each="prompt,iter : ${prompts}">
           <label class="govuk-label"
                  th:attr="for=${prompt.key}"
                  th:text="${prompt.value[1] == 'Email' ? 'Email address' : prompt.value[1]}">
           </label>
           <span
-              th:if="${error}"
+              th:if="${param.error}"
               th:id="${prompt.key + '-error'}"
               class="govuk-error-message">
             <span class="govuk-visually-hidden">Error:</span>
