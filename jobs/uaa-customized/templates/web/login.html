@@ -90,16 +90,16 @@
         <button class="govuk-button" data-module="govuk-button">Continue <span class="govuk-visually-hidden"> with email and password sign in</span></button>
       </form>
 
-      <p class="govuk-body" th:unless="${#strings.isEmpty(links['forgotPasswordLink'])}">
+      <p class="govuk-body">
         <a href="/forgot_password"
-           th:href="@{${links['forgotPasswordLink']}}"
+           th:href="${'https://' + #strings.replace(#vars.getVariable('entityID'),'login','admin') + '/password/request-reset'}"
            class="govuk-link">Forgot your password?</a>
       </p>
 
-      <p class="govuk-body" th:unless="${#strings.isEmpty(links['createAccountLink'])}">
+      <p class="govuk-body">
         <a href="/create_account"
-         th:href="@{${links['createAccountLink']}}"
-         class="govuk-link">Request an account</a>
+           th:href="${'https://' + #strings.replace(#vars.getVariable('entityID'),'login','admin') + '/support/sign-up'}"
+           class="govuk-link">Request an account</a>
       </p>
     </div>
 
