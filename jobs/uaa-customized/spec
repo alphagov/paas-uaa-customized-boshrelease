@@ -31,6 +31,7 @@ templates:
   web/external_auth_error.html: web/external_auth_error.html
   web/error.html: web/error.html
   web/passcode.html: web/passcode.html
+  web/.well-known/security.txt: web/.well-known/security.txt
 
   mail/reset_password_unavailable.html: mail/reset_password_unavailable.html
 
