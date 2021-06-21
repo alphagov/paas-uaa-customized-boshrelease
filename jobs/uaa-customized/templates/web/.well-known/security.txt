@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; https://vdp.cabinetoffice.gov.uk/.well-known/security.txt" />
+  </head>
+  <body>
+    <p><a href="https://vdp.cabinetoffice.gov.uk/.well-known/security.txt">https://vdp.cabinetoffice.gov.uk/.well-known/security.txt</a></p>
+  </body>
+</html>
